@@ -1,7 +1,7 @@
 body{
     background-color: rgb(0, 0, 0);
     color:white;
-    font-family:Century Gothic, Helvetica, Arial, sans-serif;
+    font-family:'Century Gothic', Helvetica, Arial, sans-serif;
     padding: 0px;
     margin: 0px;
 }
@@ -34,7 +34,7 @@ button:hover{
     flex-direction: row;
     flex-wrap: wrap;
     padding: 7px;
-    background: linear-gradient(90deg,rgba(166, 75, 158, 1) 0%, rgba(82, 132, 171, 1) 50%, rgba(100, 196, 118, 1) 100%);
+    background: linear-gradient(45deg,rgba(166, 75, 158, 1) 0%, rgba(82, 132, 171, 1) 50%, rgba(100, 196, 118, 1) 100%);
 }
 
 @media (max-width: 800px) {

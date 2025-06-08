@@ -1,0 +1,164 @@
+body{
+    background: #000000;
+    background: linear-gradient(45deg,rgba(166, 75, 158, 1) 0%, rgba(82, 132, 171, 1) 50%, rgba(100, 196, 118, 1) 100%);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+	  animation: gradient 15s ease infinite;
+    color:white;
+    font-family:Century Gothic, Helvetica, Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+#main h1{
+  font-size: 75px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+button{
+    background: linear-gradient(45deg,rgba(166, 75, 158, 1) 0%, rgba(82, 132, 171, 1) 50%, rgba(100, 196, 118, 1) 100%);
+    background-size: 400% 400%;
+	  animation: gradient 15s ease infinite;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 3px;
+    font-family:Century Gothic, Helvetica, Arial, sans-serif;
+    align-self: center;
+    font-size: medium;
+}
+
+button:hover{
+    background: white;
+    color: black;
+    border: 1px solid white;
+    box-shadow: 0px 0px 20px 5px rgba(255, 255, 255);
+    transition:0.3s;
+}
+
+#header{
+  background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+}
+
+#name{
+    font-family:Arial;
+    margin: 0;
+}
+
+#main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  #main {
+    padding: 15px 15px;
+  }
+}
+
+#footer{
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: black;
+  font-size: small;
+}
+
+#oknologowania{
+  display: inline-block;
+  background-color: black;
+  border-radius: 15px;
+  margin: 0px 25%;
+  padding:50px;
+  text-align: left;
+}
+
+.form-group{
+  margin:25px;
+}
+
+input[type=text], input[type=password]{
+  background: none;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  font-size: large;
+  color: white;
+  font-family:Century Gothic, Helvetica, Arial, sans-serif;
+  width:250px;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+  background: white;
+  border: 1px solid white;
+  color: rgb(0, 0, 0);
+  outline: none;
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255);
+  transition:0.3s;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  font-size: small;
+}
+#zaloguj{
+  margin-top: 25px;
+}
+
+#zarejestruj {
+  margin-top: 10px;
+  background: none;
+  color: rgb(145, 145, 145);
+  border: 1px solid rgb(68, 68, 68);
+}
+
+#zarejestruj:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+a:visited{
+    color:white;
+    text-decoration: none;
+}
+
+a:active{
+    color:white;
+    text-decoration: none;
+}

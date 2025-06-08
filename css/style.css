@@ -1,0 +1,92 @@
+body{
+    background-color: rgb(0, 0, 0);
+    color:white;
+    font-family:Century Gothic, Helvetica, Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+button{
+    background: black;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 5px;
+    margin: 3px;
+    min-width: 90px;
+}
+
+button:hover{
+    background: white;
+    color: black;
+    box-shadow: 0px 0px 20px 5px rgba(255, 255, 255);
+    transition:0.3s;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 7px;
+    background: linear-gradient(90deg,rgba(166, 75, 158, 1) 0%, rgba(82, 132, 171, 1) 50%, rgba(100, 196, 118, 1) 100%);
+}
+
+@media (max-width: 800px) {
+  #nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  button {
+    padding: 20px 20px;
+    font-size: large;
+  }
+}
+
+#name{
+    font-family:Arial;
+    margin: 0;
+    margin-right: auto;
+}
+
+#login{
+    margin-left: auto;
+}
+
+#main{
+    min-height: 400px;
+    padding: 15px 10%;
+}
+
+@media (max-width: 800px) {
+  #main {
+    padding: 15px 15px;
+  }
+}
+
+#footer{
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid rgb(68, 68, 68);
+  justify-content: space-around;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-size: small;
+}
+
+#buttons{
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}

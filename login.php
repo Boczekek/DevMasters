@@ -1,31 +1,46 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/login.css">
-        <link rel="shortcut icon" href="images/icon.png">
-        <title>DevMasters</title>
-    </head>
-    <body>
-        <div id="header" class="section">
-            <a href="index.php"><h1 id="name">&lt;&#47;Dev<b>Masters</b>&gt;</h1></a>
-        </div>
-        <div id="main" class="section">
-            <h1>Zaloguj się</h1>
-            <div id="oknologowania">
-                <form method="POST" action="login.php">
-                    <label for="login">Login:</label>
-                    <input type="text" id="login" name="login" placeholder="Wpisz login" autocomplete="off">
-                    <label for="haslo">Hasło:</label>
-                    <input type="password" id="haslo" name="haslo" placeholder="Wpisz hasło" autocomplete="off">
-                    <button type="submit" id="zaloguj" >Zaloguj</button>
-                    <button type="button" id="zarejestruj" >Załóż konto</button>
-                </form>
-            </div>
-        </div>
-        <div id="footer">
-            <p>Krystian Zając</p><p>Projekt na zaliczenie BD</p><p>Wszelkie prawa zastrzeżone</p>
-        </div>
-    </body>
-</html>
+<?PHP
+
+$login = $_POST['login'];
+$haslo = SHA1($_POST['haslo']);
+
+
+include 'dbconfig.php';
+
+session_start();
+
+$conn = new mysqli($server, $user, $password, $dbname);
+if ($conn->connect_error) {
+    die("Błąd połączenia z BD: " . $conn->connect_error);
+}
+
+$zapytanie = "SELECT * FROM users WHERE login='$login' AND haslo='$haslo'";
+
+$result = $conn->query($zapytanie);
+
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        $_SESSION['login'] = $row['login'];
+        $_SESSION['haslo'] = $row['haslo'];
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['ranga'] = $row['ranga'];
+        $_SESSION['email'] = $row['email'];
+        //header("Location: index.php");
+    }
+} else {
+    echo "0 results";
+}
+
+
+
+$conn->close();
+
+if(isset($_SESSION['login'])){
+    echo "Witaj ".$_SESSION['login']."<br>";
+    echo "<a href='index.php'>Powrót do strony głównej</a><br>";
+};
+
+if($_SESSION['ranga']==0){
+    echo "Konto nie jest w pełni aktywne<br>";
+}
+?>

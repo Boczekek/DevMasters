@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/login.css">
+        <link rel="shortcut icon" href="images/icon.png">
+        <title>DevMasters - Login</title>
+        <script>
+            $(document).ready(function(){
+                $("#myForm").submit(function(event){
+                    event.preventDefault();
+
+                    $.ajax({
+                        url: "register.php",
+                        type: "POST",
+                        data: $("#myForm").serialize(),
+                        cache: false,
+                    });
+
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="header" class="section">
+            <a href="index.php"><h1 id="name">&lt;&#47;Dev<b>Masters</b>&gt;</h1></a>
+        </div>
+        <div id="main" class="section">
+            <h1>Utwórz konto</h1>
+            <div id="oknologowania">
+                <form method="POST" action="register.php" id="myForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
+                    <label for="login">Login:</label>
+                    <input type="text" id="login" name="login" placeholder="Login" autocomplete="off">
+                    <label for="haslo">Hasło:</label>
+                    <input type="password" id="haslo" name="haslo" placeholder="Hasło" autocomplete="off">
+                    <button type="submit" id="zaloguj" >Zarejestruj się</button>
+                    <button type="button" type="button" onclick="location.href='login.html'" id="zarejestruj" >Zaloguj się</button>
+                </form>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Krystian Zając</p><p>Projekt na zaliczenie BD</p><p>Wszelkie prawa zastrzeżone</p>
+        </div>
+    </body>
+</html>

@@ -12,13 +12,25 @@
     <body>
         <div id="header" class="section">
             <h1 id="name">&lt;&#47;Dev<b>Masters</b>&gt;</h1>
-            <button onclick="location.href='login.php'" id="login" type="button">Zaloguj się</button>
+            <?PHP
+            session_start();
+            if(isset($_SESSION['login'])){
+                echo "Witaj ".$_SESSION['login']."<br>";
+                ?>
+            
+            <button class="link" link="logout.php" class="login" type="button">Wyloguj się</button>
+            <?PHP
+            } 
+            else{
+            ?>
+            <button onclick="location.href='login.html'" class="login" type="button">Zaloguj się</button>
+        <?PHP } ;
+        ?>
         </div>
         <div id="nav" class="section">
                 <button type="button" link="home.php" class="link">Home</button>
                 <button type="button" link="chat.php" class="link">Chat</button>
-                <button type="button" link="zamow.php" class="link">Zamów</button>
-                <button type="button" link="kontakt.php" class="link">Kontakt</button>
+                <button type="button" link="prosby.php" class="link">Prośby</button>
                 <button type="button" link="zlecenia.php" class="link">Zlecenia</button>
                 <button type="button" link="zgloszenia.php" class="link">Zgłoszenia</button>
                 <button type="button" link="uzytkownicy.php" class="link">Użytkownicy</button>

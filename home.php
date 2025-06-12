@@ -1,3 +1,2 @@
 <h1>Home</h1>
-<div>
-</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis elementum dui, vel faucibus sapien. Pellentesque luctus maximus ligula, nec placerat velit ultrices in. Nam id neque elementum, rhoncus enim sed, consectetur mauris. Cras luctus id erat sit amet tincidunt. Phasellus arcu lacus, mollis nec felis ut, ultricies aliquet nisl. Quisque felis justo, ultricies in nisl eget, pellentesque aliquet quam. Pellentesque sagittis ligula nulla, ac ullamcorper metus egestas ut. Duis consequat urna eu velit euismod, ut ultricies quam interdum. Nulla libero lorem, suscipit gravida blandit id, vulputate nec mi. Quisque egestas, mi vitae imperdiet ullamcorper, nibh elit accumsan sem, sed finibus neque magna quis ante. Integer tincidunt nunc eget elementum maximus. Sed luctus arcu non augue eleifend, eget dignissim lorem rhoncus. Proin imperdiet suscipit magna nec auctor. Donec et dolor sed neque ullamcorper semper.</p>

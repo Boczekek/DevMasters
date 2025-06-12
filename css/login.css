@@ -11,7 +11,7 @@ body{
 }
 
 #main h1{
-  font-size: 75px;
+  font-size: 65px;
 }
 
 @keyframes gradient {
@@ -101,7 +101,7 @@ button:hover{
   margin:25px;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=email]{
   background: none;
   border: 1px solid rgb(68, 68, 68);
   border-radius: 10px;

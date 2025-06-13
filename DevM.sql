@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Cze 12, 2025 at 11:49 PM
+-- Generation Time: Cze 13, 2025 at 11:29 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -26,6 +26,27 @@ USE `devm`;
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `rangi`
+--
+
+CREATE TABLE `rangi` (
+  `id` tinyint(11) NOT NULL,
+  `nazwa` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `rangi`
+--
+
+INSERT INTO `rangi` (`id`, `nazwa`) VALUES
+(1, 'Użytkownik'),
+(2, 'Developer'),
+(3, 'Moderator'),
+(4, 'Administrator');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `users`
 --
 
@@ -42,9 +63,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `haslo`, `email`, `ranga`) VALUES
-(1, 'test1', 'b444ac06613fc8d63795be9ad0beaf55011936ac', 'aha@ok.pl', 1),
-(2, 'dfg', 'dfg', 'agdf@ok.com', 0),
-(4, 'uwu', 'f46fab9f9f91073a4262a6bce61dc3d05ad0a078', 'email@mail.uwu', 0);
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@administrator.pl', 4),
+(2, 'user', '12dea96fec20593566ab75692c9949596833adc9', 'user@user.us', 1),
+(4, 'dev', '34c6fceca75e456f25e7e99531e2425c6c1de443', 'dev@developer.dev', 2),
+(5, 'mod', '7dd30f0a95d522bfc058be4e75847f8b6df9f76b', 'mod@moderator.mod', 3);
 
 -- --------------------------------------------------------
 
@@ -66,32 +88,63 @@ CREATE TABLE `zlecenia` (
 --
 
 --
+-- Indeksy dla tabeli `rangi`
+--
+ALTER TABLE `rangi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`),
+  ADD KEY `ranga` (`ranga`);
 
 --
 -- Indeksy dla tabeli `zlecenia`
 --
 ALTER TABLE `zlecenia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `rangi`
+--
+ALTER TABLE `rangi`
+  MODIFY `id` tinyint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `zlecenia`
 --
 ALTER TABLE `zlecenia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`ranga`) REFERENCES `rangi` (`id`);
+
+--
+-- Constraints for table `zlecenia`
+--
+ALTER TABLE `zlecenia`
+  ADD CONSTRAINT `zlecenia_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

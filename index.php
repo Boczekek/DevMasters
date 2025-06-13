@@ -15,17 +15,20 @@
             <?PHP
             session_start();
             if(isset($_SESSION['login'])){
-                echo "Witaj ".$_SESSION['login']."<br>";
-                ?>
+                echo "<span id='username'>".$_SESSION['login']."</span><br>";
+            ?>
             
             <button class="link" link="logout.php" class="login" type="button">Wyloguj się</button>
+            
             <?PHP
             } 
             else{
             ?>
+
             <button onclick="location.href='login.html'" class="login" type="button">Zaloguj się</button>
-        <?PHP } ;
-        ?>
+
+            <?PHP };
+            ?>
         </div>
         <div id="nav" class="section">
                 <button type="button" link="home.php" class="link">Home</button>

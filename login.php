@@ -43,4 +43,6 @@ if(isset($_SESSION['login'])){
 if($_SESSION['ranga']==0){
     echo "Konto nie jest w pełni aktywne<br>";
 }
+
+header('Location: index.php');
 ?>

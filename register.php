@@ -10,11 +10,11 @@
         die("Błąd połączenia z BD: " . $conn->connect_error);
     }
 
-    $zapytanie = "INSERT INTO `users` (`email`, `login`, `haslo`) VALUES ('$email', '$login', '$haslo');";
+    $zapytanie = "INSERT INTO `users` (`id`, `login`, `haslo`, `email`, `ranga`) VALUES (NULL, '$login', '$haslo', '$email', '1');";
 
 
     $result = $conn->query($zapytanie);
 
     $conn->close();
-    echo "<tr><td></td><td>$email</td><td>$login</td><td>$haslo</td></tr>";
+    echo "<p>Rejsetracja udana!</p>";
 ?>

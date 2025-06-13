@@ -1,3 +1,4 @@
+$("#main").load('home.php');
 $(document).ready(function () {
     
     $(".link").click(function () {

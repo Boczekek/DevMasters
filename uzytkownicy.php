@@ -50,11 +50,10 @@ $(document).ready(function(){
                 echo "<tr><td>" . $licznik++ . "</td><td>" . $row["login"] . "</td><td class='$ranga'>" . $row["ranga_nazwa"] . "</td>";
 
                 if(isset($_SESSION['login']) && $_SESSION['ranga']>2 && $row["ranga"]<$_SESSION['ranga']){
-                    echo "<td><a class='del' href='user_del.php?id=".$row["id"]."'> Usuń </a>";
-                    echo "|";
-                    echo "<a class='edit' href='editklient.php?id=".$row["id"]."'> Edytuj </a></td>";
+                    echo "<td class='center'><a class='del' href='user_del.php?id=".$row["id"]."'> Usuń </a></td>";
                 }
-                else if(isset($_SESSION['login']) && $_SESSION['ranga']==3) echo "<td>Brak uprawnień</td>";
+                else if(isset($_SESSION['login']) && $_SESSION['ranga']==3) echo "<td class='center gray'>Brak uprawnień</td>";
+                else if(isset($_SESSION['login']) && $_SESSION['ranga']==4) echo "<td></td>";
 
                 echo "</tr>\n";
             }

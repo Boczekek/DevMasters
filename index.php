@@ -6,7 +6,10 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="shortcut icon" href="images/icon.png">
         <script type="text/javascript" src="app.js" defer></script>
-        <script src="jquery.js"></script>
+        <script src="./js/jquery.slim.min.js"></script>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/jquery.js"></script>
+        <script src="./js/popper.min.js"></script>
         <title>DevMasters</title>
     </head>
     <body>
@@ -34,9 +37,19 @@
                 <button type="button" link="home.php" class="link">Home</button>
                 <button type="button" link="chat.php" class="link">Chat</button>
                 <button type="button" link="prosby.php" class="link">Prośby</button>
+                <?PHP
+                    if(isset($_SESSION['login']) && $_SESSION['ranga']>1){
+                ?>
+
                 <button type="button" link="zlecenia.php" class="link">Zlecenia</button>
+
+                <?PHP };
+                    if(isset($_SESSION['login']) && $_SESSION['ranga']>2){
+                 ?>
                 <button type="button" link="zgloszenia.php" class="link">Zgłoszenia</button>
                 <button type="button" link="uzytkownicy.php" class="link">Użytkownicy</button>
+                <?PHP };
+                ?>
         </div>
         <div id="main" class="section">
             <p>Witamy</p>

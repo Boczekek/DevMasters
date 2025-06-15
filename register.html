@@ -5,19 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/login.css">
         <link rel="shortcut icon" href="images/icon.png">
-        <title>DevMasters - Login</title>
+        <script src="./js/jquery.slim.min.js"></script>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/jquery.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <title>DevMasters - Register</title>
         <script>
             $(document).ready(function(){
-                $("#myForm").submit(function(event){
-                    event.preventDefault();
-
-                    $.ajax({
-                        url: "register.php",
-                        type: "POST",
-                        data: $("#myForm").serialize(),
-                        cache: false,
-                    });
-
+                    $("#myForm").submit(function(){
+                        var name = document.getElementById("login").value;
+                        alert("Konto " + name + " zostało utworzone pomyślnie\n\nNastąpi przekierowanie do strony logowania");
                 });
             });
         </script>
@@ -31,13 +28,13 @@
             <div id="oknologowania">
                 <form method="POST" action="register.php" id="myForm">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" maxlength="50">
+                    <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" maxlength="50" required>
                     <label for="login">Login:</label>
                     <input type="text" id="login" name="login" placeholder="Login" autocomplete="off" minlength="3" maxlength="50" required>
                     <label for="haslo">Hasło:</label>
                     <input type="password" id="haslo" name="haslo" placeholder="Hasło" autocomplete="off" minlength="6" maxlength="300" required>
                     <button type="submit" id="zaloguj" >Zarejestruj się</button>
-                    <button type="button" type="button" onclick="location.href='login.html'" id="zarejestruj" >Zaloguj się</button>
+                    <button type="button" onclick="location.href='login.html'" id="zarejestruj" >Zaloguj się</button>
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="shortcut icon" href="images/icon.png">
-        <script type="text/javascript" src="app.js" defer></script>
+        <script type="text/javascript" src="./js/app.js" defer></script>
         <script src="./js/jquery.slim.min.js"></script>
         <script src="./js/jquery.min.js"></script>
         <script src="./js/jquery.js"></script>
@@ -46,8 +46,8 @@
                 <?PHP };
                     if(isset($_SESSION['login']) && $_SESSION['ranga']>2){
                  ?>
-                <button type="button" link="zgloszenia.php" class="link">Zgłoszenia</button>
-                <button type="button" link="uzytkownicy.php" class="link">Użytkownicy</button>
+                <button type="button" link="aplikacje.php" class="link">Zgłoszenia</button>
+                <button type="button" link="users.php" class="link">Użytkownicy</button>
                 <?PHP };
                 ?>
         </div>

@@ -16,6 +16,7 @@
     $result = $conn->query($zapytanie);
 
     $conn->close();
+
     echo "<p>Rejsetracja udana!</p>";
 
     header('Location: login.html');

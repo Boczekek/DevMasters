@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
         $_SESSION['id'] = $row['id'];
         $_SESSION['ranga'] = $row['ranga'];
         $_SESSION['email'] = $row['email'];
+        $_SESSION['status_zgloszenia'] = $row['status_zgloszenia'];
         //header("Location: index.php");
     }
 } else {

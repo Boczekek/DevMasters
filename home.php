@@ -9,7 +9,7 @@
             <h1>Witaj!</h1>
             <h3>Dołącz do unikalnej społeczności dla pasjonatów oprogramowania!</h3>
             <p>Zarejestruj się aby dołączyć do dyskusji, składać prośby o napisanie kodu lub aby aplikować jako developer.</p>
-            <button onclick="location.href='register.html'" class="register" type="button">Zarejestruj się</button>
+            <button onclick="location.href='register.html'" class="baton register" type="button">Zarejestruj się</button>
         </div>
         <img src="images/icon.png" alt="logo" class="logo">
     </div>
@@ -19,7 +19,7 @@
     <div class="okno developer">
         <h1>Dołącz do grona developerów!</h1>
         <p>Jako zweryfikowany developer możesz wykonywać zlecenia na napisanie kodu i zbierać za to punkty. Przekonaj nas w formularzu, że jesteś dobrym developerem i pomagaj innym.</p>
-        <button onclick="location.href='aplikuj.html'" class="gradient aplikuj" type="button">Zostań developerem</button>
+        <button id="aplikuj" class="baton gradient aplikuj" type="button">Zostań developerem</button>
     </div>
     <?PHP
     }
@@ -28,7 +28,7 @@
     <div class="okno developer">
         <h1>Dołącz do grona developerów!</h1>
         <p>Jako zweryfikowany developer możesz wykonywać zlecenia na napisanie kodu i zbierać za to punkty. Przekonaj nas w formularzu, że jesteś dobrym developerem i pomagaj innym.</p>
-        <button onclick="location.href='login.html'" class="gradient aplikuj" type="button">Zostań developerem</button>
+        <button onclick="location.href='login.html'" class="baton gradient aplikuj" type="button">Zostań developerem</button>
     </div>
     <?PHP }; ?>
     <div class="okno">
@@ -55,8 +55,14 @@
         <h3>Przykładowe okno</h3>
         <p>Opis przykładowego okna tralala tralala</p>
     </div>
-    <div class="okno">
-        <h3>Przykładowe okno</h3>
-        <p>Opis przykładowego okna tralala tralala</p>
-    </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+    
+    $("#aplikuj").click(function () {
+        $("#main").load("aplikuj.html");
+    });
+
+}); 
+</script>

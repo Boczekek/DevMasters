@@ -309,3 +309,9 @@ form div{
 .smol{
   font-size: smaller;
 }
+
+.large{
+  font-size: 150px;
+  font-weight: bold;
+  margin:0;
+}

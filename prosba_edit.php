@@ -68,6 +68,21 @@
 
 <script>
     $(document).ready(function () {
+
+        $("#myForm").submit(function(event){
+        event.preventDefault();
+
+            $.ajax({
+                url: "prosba_edit_zapisz.php",
+                type: "POST",
+                data: $("#myForm").serialize(),
+                cache: false,
+                success: function (response) {
+                    $("#main").load("prosby.php");
+                }
+            });
+
+        });
     
         $("#anuluj").click(function () {
             const confirmed = confirm("Czy na pewno chcesz anulować?\nWszystkie zmiany zostaną utracone.");

@@ -24,6 +24,9 @@
                         echo "</div>";
                 }
             }
+            else{
+                echo "<div class='okno'><p>Brak zleceń</p></div>";
+            }
         };
 
         $conn->close();

@@ -35,7 +35,7 @@
         </div>
         <div id="nav" class="section">
                 <button type="button" link="home.php" class="link">Home</button>
-                <button type="button" link="chat.php" class="link">Chat</button>
+                <!--<button type="button" link="chat.php" class="link">Chat</button>-->
                 <button type="button" link="prosby.php" class="link">Prośby</button>
                 <?PHP
                     if(isset($_SESSION['login']) && $_SESSION['ranga']>1){

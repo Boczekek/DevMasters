@@ -1,0 +1,281 @@
+\documentclass[a4paper,12pt]{article}
+
+% Pakiety
+\usepackage[utf8]{inputenc}   % Kodowanie znaków
+\usepackage[T1]{fontenc}      % Kodowanie fontu
+\usepackage[polish]{babel}    % Język dokumentu
+\usepackage{graphicx}         % Wstawianie obrazów
+\usepackage{hyperref}         % Odsyłacze
+\usepackage{amsmath, amssymb} % Matematyka
+\usepackage{listings}         % Wstawianie kodu
+\usepackage{geometry}         % Marginesy
+\usepackage{float}            % Pozycjonowanie obrazków
+\geometry{margin=2.5cm}
+
+% Ustawienia listingu (kodów)
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny,
+  frame=single
+}
+
+\title{Portal DevMasters \\ \large{Instrukcja obsługi}}
+\author{Krystian Zając}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Wstęp}
+Niniejsza dokumentacja opisuje funkcjonowanie projektu \textbf{DevMasters} — portalu społecznościowego dedykowanego programistom i entuzjastom tworzenia oprogramowania. Głównym celem projektu jest stworzenie aplikacji webowej zintegrowanej z relacyjną bazą danych, umożliwiającej interakcję użytkowników, publikację próśb o pomoc programistyczną oraz zarządzanie zgłoszeniami i kontami.
+
+\section{Wymagania systemowe}
+
+\subsection{Wymagania sprzętowe}
+Aplikacja może zostać uruchomiona lokalnie przy użyciu pakietu \texttt{XAMPP}. Minimalna konfiguracja sprzętowa:
+\begin{itemize}
+    \item Procesor: minimum 2-rdzeniowy 2.0 GHz
+    \item Pamięć RAM: co najmniej 4 GB
+    \item Dysk twardy: minimum 500 MB wolnego miejsca
+\end{itemize}
+
+\subsection{Wymagania programowe i użytkownika końcowego}
+\begin{itemize}
+    \item System operacyjny: Windows, Linux lub macOS
+    \item Zainstalowany XAMPP (z Apache, PHP, MySQL)
+    \item Przeglądarka internetowa wspierająca JavaScript (Google Chrome, Firefox, Edge)
+    \item Włączona obsługa JavaScript w przeglądarce
+\end{itemize}
+
+\section{Instalacja}
+Aby zainstalować i uruchomić projekt lokalnie:
+\begin{enumerate}
+  \item Zainstaluj i uruchom środowisko \textbf{XAMPP}.
+  \item Włącz serwery \textbf{Apache} i \textbf{MySQL} z panelu XAMPP.
+  \item Otwórz \textbf{phpMyAdmin} i zaimportuj plik \texttt{DevM.sql}.
+  \item Skopiuj folder \texttt{DevMasters} do katalogu \texttt{htdocs}.
+  \item W przeglądarce przejdź do adresu: \url{http://localhost/devmasters/}
+\end{enumerate}
+
+\newpage
+
+\section{Struktura katalogów i plików}
+\begin{itemize}
+  \item \texttt{DevMasters/}
+  \begin{itemize}
+  \item \texttt{css/}
+  \begin{itemize}
+      \item \texttt{login.css}
+      \item \texttt{style.css}
+    \end{itemize}
+    \item \texttt{images/}
+    \begin{itemize}
+      \item \texttt{icon.png}
+    \end{itemize}
+    \item \texttt{js/}
+    \begin{itemize}
+      \item \texttt{app.js}
+      \item \texttt{jquery.js}
+      \item \texttt{jquery.min.js}
+      \item \texttt{jquery.slim.min.js}
+      \item \texttt{popper.min.js}
+    \end{itemize}
+    \item \texttt{ap\_accept.php}
+    \item \texttt{ap\_del.php}
+    \item \texttt{aplikacje.php}
+    \item \texttt{aplikuj.php}
+    \item \texttt{dbconfig.php}
+    \item \texttt{home.php}
+    \item \texttt{index.php}
+    \item \texttt{login.html}
+    \item \texttt{login.php}
+    \item \texttt{logout.php}
+    \item \texttt{prosba.html}
+    \item \texttt{prosba\_del.php}
+    \item \texttt{prosba\_dodaj.php}
+    \item \texttt{prosba\_edit.php}
+    \item \texttt{prosba\_edit\_zapisz.php}
+    \item \texttt{prosby.php}
+    \item \texttt{register.html}
+    \item \texttt{register.php}
+    \item \texttt{user\_del.php}
+    \item \texttt{users.php}
+    \item \texttt{zlecenia.php}
+  \end{itemize}
+  \item \texttt{DevM.sql}
+  \item \texttt{karta-projektu.pdf}
+  \item \texttt{instrukcja.pdf}
+\end{itemize}
+
+\newpage
+
+\section{Opis działania}
+
+\subsection{Układ strony}
+Strona składa się z trzech głównych komponentów:
+\begin{itemize}
+  \item Pasek tytułowy z logo, przyciskiem logowania i nazwą użytkownika
+  \item Pasek nawigacyjny z zakładkami
+  \item Główna sekcja zawartości — dynamicznie zmieniana
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{3.png}
+    \caption{Interfejs główny portalu}
+\end{figure}
+
+\newpage
+
+\subsection{Zakładka Home}
+
+W zakładce home wyświetlane są informacje dostosowane do aktualnie zalogowanego użytkownika oraz proste statystyki pobierane z bazy danych.\\\\
+Jeśli użytkownik nie jest zalogowany wyświetlany jest kafelek powitalny z zachętą do założenia konta.\\\\
+Jeśli użytkownik nie posiada rangi developer, wyswietlany jest też kafelek z zachętą do wypełnienia formularza zgłoszeniowego.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{2.png}
+    \caption{Home}
+\end{figure}
+
+\newpage
+
+\subsection{Zakładka Prośby}
+
+Zakładka prośby służy do składania próśb do developerów o napisanie lub poprawienie kodu. Aby złożyć taką prośbę jedynym wymaganiem jest aby użytkownik był zalogowany. Wyświetlają się tu również aktywne prośby użytkownika.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{1.png}
+    \caption{Prośby}
+\end{figure}
+
+\newpage
+
+\subsubsection{Tworzenie prośby}
+
+Po kliknięciu przycisku utwórz prośbę, użytkownik zostaje przekierowany do kreatora próśb.
+Prośba składa się z tytułu, opisu oraz tagów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{4.png}
+    \caption{Kreator próśb}
+\end{figure}
+
+\newpage
+
+\subsubsection{Edycja prośby}
+
+Po kliknięciu przycisku edytuj, użytkownik zostaje przekierowany do edytora próśb.
+Formularz powinien być uzupełniony od treści z oryginalnej prośby, które może edytować.
+Przy edycji należy na nowo wybrać tagi.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{5.png}
+    \caption{Edytor próśb}
+\end{figure}
+
+\newpage
+
+\subsection{Ekran logowania/rejestracji}
+
+Aby się zalogować użytkownik musi pdać login i hasło do istniejącego konta. Jest też opcja założenia nowego konta. Wymagane jest wtedy podanie adresu e-mail, a następnie ustalenie loginu oraz hasła.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{10.png}
+    \caption{Ekran logowania}
+\end{figure}
+
+\newpage
+
+\subsubsection{Rangi}
+
+Na portalu dostępne są następujące rangi użytkownika:
+\begin{itemize}
+    \item użytkownik - podstawowa ranga z dostępem do tworzenia próśb
+    \item developer - może reagować na zlecenia (prośby)
+    \item moderator - może zarządzać kontami użytkowników
+    \item administrator - ma pełne uprawnienia do wszystkiego, w tym do zarządzania kontami moderatorów
+\end{itemize}
+
+\subsubsection{Konta testowe}
+
+W celu swobodnego testowania projektu, utworzone zostały testowe konta z różnymi poziomami dostępu.\\\\
+
+Konto użytkownika\\
+Login: user\\
+Hasło: user\\\\
+
+Konto developera\\
+Login: dev\\
+Hasło: dev\\\\
+
+Konto moderatora\\
+Login: mod\\
+Hasło: mod\\\\
+
+Konto administratora\\
+Login: admin\\
+Hasło: admin\\
+
+\newpage
+
+\subsection{Zakładka Zlecenia}
+
+Tutaj można przeglądać prośby złożone przez innych użytkowników. Prośby zalogowanego użytkownika są odfiltrowane i wyświetlają się tylko w zakładce Prośby.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{6.png}
+    \caption{Zlecenia}
+\end{figure}
+
+\subsection{Zakładka Zgłoszenia}
+
+Tutaj moderatorzy i administratorzy mogą przeglądać, akceptować i odrzucać zgłoszenia na zostanie developerem.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{7.png}
+    \caption{Zgłoszenia}
+\end{figure}
+
+\newpage
+
+\subsection{Zakładka Użytkownicy}
+
+Tutaj moderatorzy i administratorzy mogą zarządzać kontami innych użytkowników.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{8.png}
+    \caption{Lista użytkowników}
+\end{figure}
+
+\section{Diagram bazy danych}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{9.png}
+    \caption{Diagram BD}
+\end{figure}
+
+\section{Podsumowanie}
+Portal \textbf{DevMasters} realizuje założoną funkcjonalność — umożliwia interakcję między użytkownikami w kontekście pomocy programistycznej, zarządzanie kontami oraz publikację i realizację próśb. Dzięki zastosowaniu PHP, MySQL i technologii front-endowych (HTML, CSS, JS), projekt może być uruchamiany lokalnie za pomocą XAMPP i z łatwością rozwijany. 
+
+
+\newpage
+
+\listoffigures
+
+\end{document}
+

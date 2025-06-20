@@ -27,7 +27,7 @@ Aplikacja może zostać uruchomiona lokalnie przy użyciu pakietu XAMPP. Minimal
  4. Skopiuj folder DevMasters do katalogu htdocs.
  5. W przeglądarce przejdź do adresu: http://localhost/devmasters/
 
-##Struktura katalogów i plików
+## Struktura katalogów i plików
 ```
 DevMasters/ 
 ├── css/ 

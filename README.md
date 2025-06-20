@@ -123,13 +123,13 @@ Aby się zalogować użytkownik musi pdać login i hasło do istniejącego konta
  Login: admin  
  Hasło: admin  
 
- ## Zakładka Zlecenia
+### Zakładka Zlecenia
 Tutaj można przeglądać prośby złożone przez innych użytkowników. Prośby zalogowanego użytkownika są odfiltrowane i wyświetlają się tylko w zakładce Prośby.
 
-## Zakładka Zgłoszenia
+### Zakładka Zgłoszenia
 Tutaj moderatorzy i administratorzy mogą przeglądać, akceptować i odrzucać zgłoszenia na zostanie developerem.
 
-## Zakładka Użytkownicy
+### Zakładka Użytkownicy
 Tutaj moderatorzy i administratorzy mogą zarządzać kontami innych użytkowników.
 
 ## Podsumowanie

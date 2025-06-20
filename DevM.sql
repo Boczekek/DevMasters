@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Cze 16, 2025 at 03:19 AM
+-- Generation Time: Cze 20, 2025 at 01:23 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -116,7 +116,8 @@ CREATE TABLE `zlecenia` (
 
 INSERT INTO `zlecenia` (`id`, `user_id`, `tytul`, `opis`, `tagi`, `status`) VALUES
 (16, 22, 'Chyba mamy problem', 'Robię projekt na studia i z jakiegoś powodu nie działa ten skrypt\r\n\r\n<script>\r\n    $(document).ready(function () {\r\n    \r\n    $(\"#aplikuj\").click(function () {\r\n        $(\"#main\").load(\"aplikuj.html\");\r\n    });\r\n\r\n}); \r\n</script>\r\n\r\nPomocy!', 'JavaScript, HTML, CSS', 0),
-(18, 19, 'Podobno Tomasz ma problem', 'A jak Tomasz ma problem to ja też bo robimy ten projekt razem :(((', 'JavaScript, PHP, SQL, HTML, CSS', 0);
+(18, 19, 'Podobno Tomasz ma problem', 'A jak Tomasz ma problem to ja też bo robimy ten projekt razem :(((', 'JavaScript, PHP, SQL, HTML, CSS', 0),
+(20, 2, 'Przykładowa prośba', 'Opis przykładowej prośby', 'HTML, CSS', 0);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -176,7 +177,7 @@ ALTER TABLE `zgloszenia`
 -- AUTO_INCREMENT for table `zlecenia`
 --
 ALTER TABLE `zlecenia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
